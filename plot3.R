@@ -1,0 +1,11 @@
+#Plot3 R script using mydates from Reading code.R
+plot(1:nrow(mydates), as.numeric(mydates$Sub_metering_1), type = "l", ylab = "Energy sub meeting", xlab = "", ylim = c(0, 40), xaxt = "n", yaxt= "n", col = "black")
+par(new=T)
+plot(as.numeric(mydates$Sub_metering_2), type = "l", ylab = "Energy sub meeting", xlab = "", col = "red", xaxt = "n", yaxt= "n", ylim = c(0, 40))
+par(new=T)
+plot(as.numeric(mydates$Sub_metering_3), type = "l", ylab = "Energy sub meeting", xlab = "", col = "blue", xaxt = "n", yaxt= "n", ylim = c(0, 40))
+axis(1, at = c(0, 1500, 2900), labels = c("Thu", "Fri", "Sat"))
+axis(2, at = c(0, 10, 20, 30), labels = c("0", "10", "20", "30"))
+legend("topright", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col = c("Black", "Red", "Blue"), lty = c(1,1,1))
+dev.copy(png, "plot3.png")
+dev.off()
